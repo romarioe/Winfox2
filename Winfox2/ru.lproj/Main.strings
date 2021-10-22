@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Пароль*"; ObjectID = "2rG-0T-bTc"; */
+"2rG-0T-bTc.text" = "Пароль*";
+
+/* Class = "UIButton"; configuration.title = "Зарегистрироваться"; ObjectID = "5qu-cX-4kb"; */
+"5qu-cX-4kb.configuration.title" = "Зарегистрироваться";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5qu-cX-4kb"; */
+"5qu-cX-4kb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Email*"; ObjectID = "7IX-5P-JlW"; */
+"7IX-5P-JlW.text" = "Email*";
+
+/* Class = "UILabel"; text = "Отчество*"; ObjectID = "Do8-dg-4K3"; */
+"Do8-dg-4K3.text" = "Отчество*";
+
+/* Class = "UILabel"; text = "Подтвердите пароль*"; ObjectID = "Kyf-RK-ENj"; */
+"Kyf-RK-ENj.text" = "Подтвердите пароль*";
+
+/* Class = "UILabel"; text = "Фамилия*"; ObjectID = "OuI-VZ-sdT"; */
+"OuI-VZ-sdT.text" = "Фамилия*";
+
+/* Class = "UILabel"; text = "Имя*"; ObjectID = "SmO-zv-lvT"; */
+"SmO-zv-lvT.text" = "Имя*";
+
+/* Class = "UILabel"; text = "Поля отмеченные звёздочкой обязательны для заполнения"; ObjectID = "dcd-iW-4Wj"; */
+"dcd-iW-4Wj.text" = "Поля отмеченные звёздочкой обязательны для заполнения";
+
+/* Class = "UIButton"; configuration.title = "Регистрация"; ObjectID = "iuk-fd-H9a"; */
+"iuk-fd-H9a.configuration.title" = "Регистрация";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iuk-fd-H9a"; */
+"iuk-fd-H9a.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oZ2-Fm-nR1"; */
+"oZ2-Fm-nR1.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Авторизация"; ObjectID = "vbl-fy-zdV"; */
+"vbl-fy-zdV.configuration.title" = "Авторизация";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vbl-fy-zdV"; */
+"vbl-fy-zdV.normalTitle" = "Button";
