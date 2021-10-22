@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class NetworkService{
@@ -131,8 +132,86 @@ class NetworkService{
     
     
     
-   
     
     
     
+    func uploadAvatar(imageToUpload: UIImage) {
+        let avatarURL = baseURL.appendingPathComponent("uploadAvatar")
+        
+        var request = URLRequest(url: avatarURL)
+        request.httpMethod = "POST";
+
+        let formdata = [
+            "key"  : "file",
+            "type"    : "file",
+        ]
+
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        let imageData = imageToUpload.jpegData(compressionQuality: 1)
+        if imageData == nil  {
+            return
+        }
+
+        request.httpBody = createBodyWithParameters(parameters: formdata, filePathKey: "src", imageDataKey: imageData! as NSData, boundary: boundary) as Data
+
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+        
+
+                if error != nil {
+                    print("error=\(error!)")
+                    return
+                }
+
+                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("response data = \(responseString!)")
+
+            }
+
+            task.resume()
+        }
+    
+    
+    
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+            let body = NSMutableData();
+
+            if parameters != nil {
+                for (key, value) in parameters! {
+                    body.appendString(string: "--\(boundary)\r\n")
+                    body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                    body.appendString(string: "\(value)\r\n")
+                }
+            }
+
+            let filename = "avatar.jpg"
+            let mimetype = "image/jpg"
+
+            body.appendString(string: "--\(boundary)\r\n")
+            body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+            body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+            body.append(imageDataKey as Data)
+            body.appendString(string: "\r\n")
+            body.appendString(string: "--\(boundary)--\r\n")
+
+            return body
+        }
+
+    
+        func generateBoundaryString() -> String {
+            return "Boundary-\(NSUUID().uuidString)"
+        }
+    
+
+}
+
+
+
+extension NSMutableData {
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
 }

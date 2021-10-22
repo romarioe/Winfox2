@@ -264,6 +264,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         avatarImageButton.contentMode = .scaleAspectFill
 
         avatarImage = image
+        
+        let networkService = NetworkService()
+        networkService.uploadAvatar(imageToUpload: image)
 
         dismiss(animated: true)
     }
